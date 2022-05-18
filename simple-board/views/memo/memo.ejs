@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Memo</title>
+  </head>
+  <body>
+    <h1>메모장 제작 연습</h1>
+    <br />
+    <a href="/memo/write">글쓰기</a>
+    <h2> 글 목록</h2>
+    <!-- 함수를 사용할 때 % -->
+    <% for(let i=0; i<content.length;i++) { %>
+      <!-- 변수를 할당할 때 %= -->
+      <a href="/memo/read/<%=content[i].no %>"><%=content[i].title %></a> 
+      <br />
+    <% } %>
+  </body>
+</html>
+
+<!-- 글 제목이 뜨고 제목을 클릭했을 때 본문 내용으로 이동할 수 있도록 -->
