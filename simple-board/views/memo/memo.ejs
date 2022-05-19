@@ -14,7 +14,7 @@
     <!-- 함수를 사용할 때 % -->
     <% for(let i=0; i<content.length;i++) { %>
       <!-- 변수를 할당할 때 %= -->
-      <a href="/memo/read/<%=content[i].no %>"><%=content[i].title %></a> 
+      <a href="/memo/read/<%=content[i].no %>"><%=content[i].title %>, <%=content[i].no %></a> 
       <br />
     <% } %>
   </body>

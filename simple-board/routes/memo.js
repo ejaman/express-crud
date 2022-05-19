@@ -34,4 +34,11 @@ router.post("/write", (req, res, next) => {
     });
 });
 
+// read 기능
+router.get("/read/:id", async (req, res) => {
+  const no = req.params.id;
+  const result = await memoSchema.findOne({ no: no }).exec();
+  res.render("memo/content", { content: result });
+});
+
 module.exports = router;
