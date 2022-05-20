@@ -8,7 +8,7 @@ btn.addEventListener("click", () => {
 });
 
 del.addEventListener("click", () => {
-  fetch(`http://localhost:3000/blog/delete/${del.dataset.doc}`, {
+  fetch(`http://localhost:3000/memo/delete/${del.dataset.doc}`, {
     method: "DELETE",
   })
     .then((res) => res.json())

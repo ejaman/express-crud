@@ -7,7 +7,7 @@ router.get("/", async (req, res) => {
   res.render("memo/memo", { content: result });
 });
 
-// write 창 띄우기
+// create 기능 - write 창 띄우기
 router.get("/write", (req, res) => {
   res.render("memo/write"); // render에는 view의 파일 이름을 넣어주면 된다
 });
@@ -39,6 +39,14 @@ router.get("/read/:id", async (req, res) => {
   const no = req.params.id;
   const result = await memoSchema.findOne({ no: no }).exec();
   res.render("memo/content", { content: result });
+});
+
+// delete 기능
+router.delete("/delete/:id", async (req, res) => {
+  const no = req.params.id;
+  const del = await memoSchema.findOneAndDelete({ no: no });
+  // catch err?
+  return res.status(200).json({ redirect: "/memo" });
 });
 
 module.exports = router;
