@@ -17,6 +17,6 @@ del.addEventListener("click", () => {
 });
 
 // update => 기존 글 내용 가져오기 => 수정 후 post로 전송
-// update.addEventListener("click", () => {
-//   location.href = `/memo/updated/${update.dataset.doc}`;
-// });
+update.addEventListener("click", () => {
+  location.href = `/memo/update/${update.dataset.doc}`;
+});

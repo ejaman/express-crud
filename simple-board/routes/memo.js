@@ -49,4 +49,19 @@ router.delete("/delete/:id", async (req, res) => {
   return res.status(200).json({ redirect: "/memo" });
 });
 
+// update 기능
+router.get("/update/:id", async (req, res) => {
+  const no = req.params.id;
+  // exec 다시 확인해보기
+  const result = await memoSchema.findOne({ no: no }).exec();
+  res.render("memo/update", { content: result });
+});
+router.post("/updated/:id", async (req, res) => {
+  const no = req.params.id;
+  const title = req.body.title;
+  const content = req.body.content;
+  await memoSchema.findOneAndUpdate({ no: no }, { title, content }).exec();
+  const updated = await memoSchema.findOne({ no: no }).exec();
+  res.render("memo/content", { content: updated });
+});
 module.exports = router;
